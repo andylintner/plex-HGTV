@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site site="http://www.hgtv.com"
+	    plugin="http://common.scrippsnetworks.com/common/snap/snap-portable-1.1.0.swf"
+			initialState="playing"
+			version="1.0">
+			
+	<crop x="0" y="0" width="574" height="432" />
+
+	<seekbar type="thumb">
+		<start x="34" y="437" />
+		<end   x="432" y="450" />
+		<played>
+			<color rgb="1e1e1e" />
+		</played>
+	</seekbar>
+				
+<!-- Set Colors for Paused Video -->
+	<condition name="paused">
+		<color x="12" y="445" rgb="e9e9e9" />
+	</condition>
+    
+<!-- PLAYING -->
+	<state name="playing">
+		
+<!-- Click to pause -->
+		<event>
+			<condition>
+				<command name="pause" />
+			</condition>
+			<action>
+				<click x="13" y="444" />
+			</action>
+		</event>
+
+<!-- Detect paused video -->
+		<event>
+			<condition>
+				<condition name="paused" />
+			</condition>
+			<action>
+				<goto state="paused" />
+			</action>
+		</event>
+	</state>
+		
+	
+<!-- PAUSED -->
+	<state name="paused">
+		<event>
+			<condition>
+				<command name="play" />
+			</condition>
+			<action>
+				<click x="13" y="444" />
+			</action>
+		</event>
+        		
+<!-- Go To Playing -->
+		<event>
+			<condition>
+				<not>
+					<condition name="paused" />
+				</not>
+			</condition>
+			<action>
+				<goto state="playing" />
+            </action>
+        </event>
+        
+	</state>
+        
+</site>
