@@ -37,8 +37,9 @@ def HandleVideosRequest(pathNouns, count):
     for s in shows:
         title = s.text
         url = s.xpath("../p[@class='cta']/a")[0].get('href')
-        thumb = s.xpath("../a/img")[0].get('src')
-        dir.AppendItem(DirectoryItem('shows||'+url, title))
+        thumb = s.xpath("../a[@class='banner']/img")[0].get('src')
+        summary = s.xpath("../p[1]")[0].text.strip()
+        dir.AppendItem(DirectoryItem('shows||'+url, title, thumb, summary))
     
   
   elif pathNouns[0].startswith("shows"):
