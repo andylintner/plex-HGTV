@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site site="http://www.hgtv.com"
-        plugin="http://common.scrippsnetworks.com/common/snap/snap-portable-1.1.0.swf"
+        plugin="http://common.scrippsnetworks.com/common/snap/snap-portable.*swf"
             initialState="playing"
             version="1.0">
             
